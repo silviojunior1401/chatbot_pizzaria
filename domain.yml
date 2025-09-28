@@ -9,7 +9,13 @@ intents:
   - informar_tipo_borda
   - confirmar_pedido
   - cancelar_pedido
+  - negar
   - agradecer
+  - pedir_bebida
+  - informar_bebida
+  - perguntar_preco_pizza
+  - perguntar_entrega
+  - informar_endereco
 
 responses:
   utter_saudacao:
@@ -27,14 +33,29 @@ responses:
   utter_pedir_borda:
   - text: "Qual tipo de borda? Com borda recheada, borda vulcão, borda fina ou sem borda?"
 
-  utter_confirmar_pedido:
-  - text: "Seu pedido esta correto? Uma pizza de {sabor} {tamanho} e o tipo de borda é {borda}?"
+  utter_perguntar_bebida:
+  - text: "Perfeito! Pizza de {sabor} {tamanho} e borda {borda} anotada. Deseja adicionar alguma bebida ao seu pedido? (Sim/Não)"
 
   utter_cancelar_pedido:
   - text: "Pedido cancelado. Se precisar de algo é só avisar"
 
   utter_agradecer:
   - text: "A Pizzaria agradece, aguardamos você novamente"
+  
+  utter_pedir_bebida_lista:
+  - text: "Ótimo! Temos Coca-Cola, Guaraná e água. Qual bebida você gostaria de adicionar?"
+
+  utter_qual_endereco:
+  - text: "Para simular a entrega e o prazo, qual o endereço de entrega?"
+
+  utter_preco_pizza:
+  - text: "O preço da pizza, dependendo do tamanho, varia entre R$ 35,00 e R$ 65,00."
+
+  utter_confirmar_pedido_final:
+  - text: "Confirmando: Uma pizza de {sabor} {tamanho}, borda {borda} e uma {bebida}. Está correto?"
+
+  utter_perguntar_entrega_final:
+  - text: "Tudo certo com o pedido! Você gostaria de simular a entrega e o valor do frete agora? (Sim/Não)"
 
 slots:
   sabor: 
@@ -54,14 +75,30 @@ slots:
     mappings:
       - type: from_entity
         entity: borda
+  
+  bebida: 
+    type: text
+    mappings:
+      - type: from_entity
+        entity: bebida
+
+  endereco:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: endereco
 
 entities:
 - sabor
 - tamanho
 - borda
+- bebida
+- endereco
 
 actions:
 - action_validar_sabor
+- action_validar_bebida
+- action_simular_entrega
 
 
 session_config:

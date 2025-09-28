@@ -61,6 +61,7 @@ nlu:
         - Quero fazer um pedido
         - Eu quero pedir uma pizza
         - Gostaria de algo
+        - Quero pizza
       
     - intent: informar_sabor_pizza
       examples: |
@@ -100,11 +101,18 @@ nlu:
 
     - intent: cancelar_pedido
       examples: |
+        - Quero cancelar o meu pedido
+        - Cancelar tudo
+        - Desistir do pedido
+        - Não quero mais o pedido
+
+    - intent: negar
+      examples: |
         - não
-        - não quero mais
+        - não quero
         - não, obrigado
         - não, não quero
-        - não quero mas   
+        - não quero mais
 
     - intent: agradecer
       examples: |
@@ -114,7 +122,48 @@ nlu:
         - muito obrigada
         - agradeço
 
+    - intent: pedir_bebida
+      examples: |
+        - Quero uma bebida
+        - O que vocês têm para beber?
+        - Gostaria de adicionar um refrigerante
+        - E para beber?
+        - Me vê uma bebida
+
+    - intent: informar_bebida
+      examples: |
+        - Uma [Coca-Cola](bebida)
+        - Um [Guaraná](bebida)
+        - Pode ser [água](bebida)
+        - Quero [suco de laranja](bebida)
+
+    - intent: perguntar_preco_pizza
+      examples: |
+        - Qual é o preço da pizza?
+        - Quanto custa?
+        - Me diz o valor
+        - Preços, por favor
+        - Qual o valor total?
+
+    - intent: perguntar_entrega
+      examples: |
+        - Quanto tempo demora a entrega?
+        - Queria saber o valor do frete
+        - Vocês entregam em casa?
+        - Simular entrega
+
+    - intent: informar_endereco
+      examples: |
+        - Entregar na [Rua das Flores, 123](endereco)
+        - Meu endereço é [Avenida Principal, 45](endereco)
+        - O local de entrega é [Bairro Novo, Casa 10](endereco)
+        - O endereço é [Rua A, 222](endereco)
+        - [Av. Central, 1000](endereco)
+        - Entregue em [Rua dos bobos](endereco)
+
 entities:
 - sabor
 - tamanho
 - borda
+- bebida
+- endereco

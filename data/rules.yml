@@ -12,18 +12,54 @@ rules:
   - intent: despedida
   - action: utter_despedida
 
+- rule: Responder pergunta sobre preço
+  steps:
+  - intent: perguntar_preco_pizza
+  - action: utter_preco_pizza
+
 - rule: Sempre validar sabor
   steps:
   - intent: informar_sabor_pizza
   - action: action_validar_sabor
   - action: utter_pedir_tamanho
 
-- rule: Confirmar borda
+- rule: Pedir borda
   steps:
   - intent: informar_tamanho_pizza
   - action: utter_pedir_borda
 
-- rule: Confirmar pedido
+- rule: Perguntar por bebida após definir pizza
   steps:
+  - intent: informar_tipo_borda
+  - action: utter_perguntar_bebida
+
+- rule: Validar e confirmar bebida
+  steps:
+  - intent: informar_bebida
+  - action: action_validar_bebida
+  - action: utter_confirmar_pedido_final
+  
+- rule: Iniciar fluxo de bebida (Confirmar)
+  steps:
+  - action: utter_perguntar_bebida
   - intent: confirmar_pedido
+  - action: utter_pedir_bebida_lista
+  
+- rule: Perguntar sobre entrega após confirmação final do pedido
+  steps:
+  - action: utter_confirmar_pedido_final
+  - intent: confirmar_pedido
+  - action: utter_perguntar_entrega_final
+
+- rule: Simular entrega (Confirmar simulação)
+  steps:
+  - action: utter_perguntar_entrega_final
+  - intent: confirmar_pedido
+  - action: utter_qual_endereco
+  
+- rule: Simular entrega após informar endereço (rule)
+  steps:
+  - action: utter_qual_endereco
+  - intent: informar_endereco
+  - action: action_simular_entrega
   - action: utter_agradecer

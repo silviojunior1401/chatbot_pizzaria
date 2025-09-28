@@ -2,7 +2,7 @@ version: "3.1"
 
 stories:
 
-- story: fluxo pedido
+- story: fluxo pedido completo com bebida e entrega
   steps:
   - intent: saudacao
   - action: utter_saudacao
@@ -14,12 +14,65 @@ stories:
   - intent: informar_tamanho_pizza
   - action: utter_pedir_borda
   - intent: informar_tipo_borda
-  - action: utter_confirmar_pedido
+  - action: utter_perguntar_bebida
   - intent: confirmar_pedido
+  - action: utter_pedir_bebida_lista
+  - intent: informar_bebida
+  - action: action_validar_bebida
+  - action: utter_confirmar_pedido_final
+  - intent: confirmar_pedido
+  - action: utter_perguntar_entrega_final
+  - intent: confirmar_pedido
+  - action: utter_qual_endereco
+  - intent: informar_endereco
+  - action: action_simular_entrega
   - action: utter_agradecer
   - intent: despedida
   - action: utter_despedida
 
+- story: fluxo pedido completo sem bebida e com entrega
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: fazer_pedido
+  - action: utter_pedir_sabor
+  - intent: informar_sabor_pizza
+  - action: action_validar_sabor
+  - action: utter_pedir_tamanho
+  - intent: informar_tamanho_pizza
+  - action: utter_pedir_borda
+  - intent: informar_tipo_borda
+  - action: utter_perguntar_bebida
+  - intent: negar
+  - action: utter_perguntar_entrega_final
+  - intent: confirmar_pedido
+  - action: utter_qual_endereco
+  - intent: informar_endereco
+  - action: action_simular_entrega
+  - action: utter_agradecer
+  - intent: despedida
+  - action: utter_despedida
+
+- story: fluxo pedido completo sem bebida e sem entrega
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: fazer_pedido
+  - action: utter_pedir_sabor
+  - intent: informar_sabor_pizza
+  - action: action_validar_sabor
+  - action: utter_pedir_tamanho
+  - intent: informar_tamanho_pizza
+  - action: utter_pedir_borda
+  - intent: informar_tipo_borda
+  - action: utter_perguntar_bebida
+  - intent: negar
+  - action: utter_perguntar_entrega_final
+  - intent: negar
+  - action: utter_agradecer
+  - intent: despedida
+  - action: utter_despedida
+  
 - story: fluxo cancelamento
   steps:
   - intent: saudacao
@@ -32,11 +85,7 @@ stories:
   - intent: informar_tamanho_pizza
   - action: utter_pedir_borda
   - intent: informar_tipo_borda
-  - action: utter_confirmar_pedido
+  - action: utter_perguntar_bebida
   - intent: cancelar_pedido
   - action: utter_cancelar_pedido
-  - intent: despedida
   - action: utter_despedida
-
-
-
