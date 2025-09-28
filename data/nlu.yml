@@ -1,0 +1,120 @@
+version: "3.1"
+
+nlu:
+    - intent: saudacao
+      examples: |
+          - bom dia
+          - boa tarde
+          - boa noite
+          - olá
+          - oi
+          - e aí
+          - fala
+          - salve
+          - salve salve
+          - tudo bem?
+          - tudo bom?
+          - como vai?
+          - como você está?
+          - como você tá?
+          - como cê tá?
+          - como cê tá indo?
+          - como você tá indo?
+          - como você vai?
+          - e aí, tudo bem?
+          - e aí, tudo bom?
+          - e aí, como vai?
+          - e aí, como você está?
+          - e aí, como você tá?
+          - e aí, como cê tá?
+          - e aí, como cê tá indo?
+          - e aí, como você tá indo?
+          - e aí, como você vai?
+
+    - intent: despedida
+      examples: |
+          - tchau
+          - até mais
+          - até logo
+          - até a próxima
+          - falou
+          - fui
+          - vou nessa
+          - vou indo
+          - vou nessa, falou
+          - vou indo, falou
+          - é nóis
+          - é nóis, falou
+          - valeu, falou
+          - valeu, até mais
+          - valeu, até logo
+          - valeu, até a próxima
+          - obrigado, tchau
+          - obrigado, até mais
+          - obrigado, até logo
+          - obrigado, até a próxima
+          - brigadão, tchau
+
+    - intent: fazer_pedido
+      examples: |
+        - Gostaria de uma pizza
+        - Quero fazer um pedido
+        - Eu quero pedir uma pizza
+        - Gostaria de algo
+      
+    - intent: informar_sabor_pizza
+      examples: |
+        - de [mussarela](sabor)
+        - com [calabresa](sabor)
+        - [frango com catupiry](sabor)
+        - quero uma [portuguesa](sabor)
+
+    - intent: informar_tamanho_pizza
+      examples: |
+        - tamanho [pequena](tamanho)
+        - quero uma pizza [média](tamanho)
+        - pizza [grande](tamanho)
+        - uma [broto](tamanho) por favor
+
+    - intent: informar_tipo_borda
+      examples: |
+        - com borda [recheada](borda)
+        - borda [sem recheio](borda)
+        - quero borda [cheddar](borda)
+        - borda [catupiry](borda)
+        - [borda fina](borda)
+        - borda [grossa](borda)
+        - borda [recheada](borda)
+        - borda [fina](borda)
+        - [sem](borda) borda
+
+    - intent: confirmar_pedido
+      examples: |
+        - sim 
+        - claro
+        - com certeza
+        - isso
+        - ok
+        - sim, é isso mesmo
+        - isso mesmo
+
+    - intent: cancelar_pedido
+      examples: |
+        - não
+        - não quero mais
+        - não, obrigado
+        - não, não quero
+        - não quero mas   
+
+    - intent: agradecer
+      examples: |
+        - obrigado
+        - valeu
+        - muito obrigado
+        - muito obrigada
+        - agradeço
+
+entities:
+- sabor
+- tamanho
+- borda
