@@ -44,12 +44,24 @@ rules:
   - action: utter_perguntar_bebida
   - intent: confirmar_pedido
   - action: utter_pedir_bebida_lista
+
+- rule: Pular bebida (Negar)
+  steps:
+  - action: utter_perguntar_bebida
+  - intent: negar
+  - action: utter_perguntar_entrega_final
   
 - rule: Perguntar sobre entrega após confirmação final do pedido
   steps:
   - action: utter_confirmar_pedido_final
   - intent: confirmar_pedido
   - action: utter_perguntar_entrega_final
+
+- rule: Corrigir bebida
+  steps:
+  - action: utter_confirmar_pedido_final
+  - intent: negar
+  - action: utter_pedir_bebida_lista
 
 - rule: Simular entrega (Confirmar simulação)
   steps:
@@ -63,3 +75,15 @@ rules:
   - intent: informar_endereco
   - action: action_simular_entrega
   - action: utter_agradecer
+
+- rule: Pular entrega (Negar simulação)
+  steps:
+  - action: utter_perguntar_entrega_final
+  - intent: negar
+  - action: utter_agradecer
+
+- rule: Cancelar pedido a qualquer momento
+  steps:
+  - intent: cancelar_pedido
+  - action: utter_cancelar_pedido
+  - action: utter_despedida
